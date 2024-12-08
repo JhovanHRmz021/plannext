@@ -1,0 +1,11 @@
+{
+  "name": "planificartareas",
+  "version": "1.0.0",
+  "description": "Agregar tareas de manera inteligente y cumple cada meta que deseas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jhovan Hernandez Ramirez",
+  "license": "ISC"
+}
