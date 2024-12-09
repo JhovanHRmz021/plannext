@@ -1,24 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Planificador de Tareas</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h1>Planificador de Tareas</h1>
-  </header>
-  <main>
-    <section id="task-form">
-      <input type="text" id="task-input" placeholder="Escribe una tarea..." />
-      <button id="add-task">Añadir Tarea</button>
-    </section>
-    <section id="task-list">
-      <ul></ul>
-    </section>
-  </main>
-  <script src="app.js"></script>
-</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planificador de metas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="titulo">
+        <h1>Plan<span>N</span>ext</h1>
+      </div>
+      <div class="nav">
+        <img src="./assets/img/perfil.png" alt="Imagen de perfil" />
+      </div>
+    </header>
+
+    <main>
+      <div class="aside">
+        <a href="/lista" class="lista-plan">Lista</a>
+        <a href="/nuevo" class="nuevo-plan">Nuevo</a>
+      </div>
+      <div class="main">
+        <div class="tarjeta-meta">
+          <div class="meta-titulo">
+            <span>icono</span>
+            <p>Correr una cuadra</p>
+          </div>
+          <div class="meta-periodo">
+            <p>1 <small>semana</small></p>
+          </div>
+          <div class="meta-completado">
+            <p>1 de 2</p>
+            <div>
+              <div></div>
+            </div>
+          </div>
+          <button>Completado</button>
+        </div>
+        <div class="tarjeta-meta">
+          <div class="meta-titulo">
+            <span>icono</span>
+            <p>Leer un libro</p>
+          </div>
+          <div class="meta-periodo">
+            <p>1 <small>mes</small></p>
+          </div>
+          <div class="meta-completado">
+            <p>2 de 4</p>
+            <div>
+              <div></div>
+            </div>
+          </div>
+          <button>Completado</button>
+        </div>
+      </div>
+      </div>
+
+    </main>
+  </body>
 </html>
