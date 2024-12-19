@@ -1,3 +1,4 @@
+import guardar from "../logica/memoria.js";
 import renderEtiquetas from "./renderEtiqueta.js";
 
 const iconoList = ["🏃🏻‍♀️", "📚", "🎁", "🛠️", "💵", "💻", "🏥", "🏕️", "🍲"];
@@ -26,10 +27,7 @@ export default function formulario() {
   inputMeta.type = "text";
   inputMeta.name = "meta";
   inputMeta.required = true;
-  divIcon.appendChild(labelIcono)
-  divIcon.appendChild(selectIcono)
-  divIcon.appendChild(labelMeta)
-  divIcon.appendChild(inputMeta)
+  divIcon.append(labelIcono,selectIcono,labelMeta, inputMeta);
 
   // Campo Frecuencia
   const divPeriodo = renderEtiquetas('div','frecuencia-periodo')
@@ -51,10 +49,7 @@ export default function formulario() {
     option.textContent = periodo;
     selectPeriodo.appendChild(option);
   });
-  divPeriodo.appendChild(labelFrecuencia)
-  divPeriodo.appendChild(inputFrecuencia)
-  divPeriodo.appendChild(labelPeriodo)
-  divPeriodo.appendChild(selectPeriodo)
+  divPeriodo.append(labelFrecuencia, inputFrecuencia, labelPeriodo, selectPeriodo);
 
   // Campo Duración
   const labelDuracion = renderEtiquetas("label");
@@ -64,8 +59,6 @@ export default function formulario() {
   inputDuracion.type = "number";
   inputDuracion.name = "duracion";
   inputDuracion.required = true;
-  divDuracion.appendChild(labelDuracion)
-  divDuracion.appendChild(inputDuracion)
 
   // Campo Minutos/Horas
   const labelMinHr = renderEtiquetas("label");
@@ -78,19 +71,16 @@ export default function formulario() {
     option.textContent = unidad;
     selectMinHr.appendChild(option);
   });
-  divDuracion.append(labelMinHr)
-  divDuracion.append(selectMinHr)
+  divDuracion.append(labelDuracion,inputDuracion,labelMinHr,selectMinHr)
 
   // Campo Repeticiones
   const labelRepeticiones = renderEtiquetas("label");
   const divRepeticiones = renderEtiquetas('div', 'rep-total');
   labelRepeticiones.textContent = "Repeticiones:";
-  const inputRepeticiones = document.createElement("input");
+  const inputRepeticiones = renderEtiquetas("input");
   inputRepeticiones.type = "number";
   inputRepeticiones.name = "repeticiones";
   inputRepeticiones.required = true;
-  divRepeticiones.appendChild(labelRepeticiones)
-  divRepeticiones.appendChild(inputRepeticiones)
 
   // Campo Total de Repeticiones
   const labelTotalRepeticiones = renderEtiquetas("label");
@@ -99,8 +89,7 @@ export default function formulario() {
   inputTotalRepeticiones.type = "number";
   inputTotalRepeticiones.name = "total_repeticiones";
   inputTotalRepeticiones.required = true;
-  divRepeticiones.appendChild(labelTotalRepeticiones)
-  divRepeticiones.appendChild(inputTotalRepeticiones)
+  divRepeticiones.append(labelRepeticiones,inputRepeticiones,labelTotalRepeticiones,inputTotalRepeticiones)
 
   // Campo Fecha Inicio
   const labelFechaInicio = renderEtiquetas("label");
@@ -110,8 +99,6 @@ export default function formulario() {
   inputFechaInicio.type = "date";
   inputFechaInicio.name = "fecha_inicio";
   inputFechaInicio.required = true;
-  divFecha.appendChild(labelFechaInicio)
-  divFecha.appendChild(inputFechaInicio)
 
   // Campo Fecha Fin
   const labelFechaFin = renderEtiquetas("label");
@@ -120,8 +107,7 @@ export default function formulario() {
   inputFechaFin.type = "date";
   inputFechaFin.name = "fecha_fin";
   inputFechaFin.required = true;
-  divFecha.appendChild(labelFechaFin)
-  divFecha.appendChild(inputFechaFin)
+  divFecha.append(labelFechaInicio,inputFechaInicio,labelFechaFin,inputFechaFin)
 
   // Botón Crear
   const botonCrear = renderEtiquetas("button");
@@ -145,7 +131,8 @@ export default function formulario() {
       fecha_inicio: inputFechaInicio.value,
       fecha_fin: inputFechaFin.value,
     };
-    console.log("Nueva meta creada:", nuevaMeta);
+    guardar(nuevaMeta)
+    // console.log("Nueva meta creada:", nuevaMeta);
     form.reset(); // Limpiar formulario
   });
 
@@ -175,6 +162,7 @@ export default function formulario() {
     // inputFechaInicio,
     // labelFechaFin,
     // inputFechaFin,
+    divRepeticiones,
     divFecha,
     divButton
     // botonCrear
