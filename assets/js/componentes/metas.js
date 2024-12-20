@@ -27,15 +27,19 @@ function renderCompleto(repeticiones, totalRepeticiones) {
   return divCompleto;
 }
 
+function metaNoencontrada() {
+  const div = renderEtiquetas('div', 'div-error')
+  div.innerHTML = 'no se pudieron renderizar las metas.';
+  return div;
+}
+
 export default function renderMetas(lista) {
   if (!Array.isArray(lista)) {
     console.error(
       "El argumento proporcionado a renderMetas no es un array:",
       lista
     );
-    return document.createTextNode(
-      "Error: no se pudieron renderizar las metas."
-    );
+    return metaNoencontrada();
   }
 
   const fragment = document.createDocumentFragment(); // Usar un fragmento para optimizar el DOM
